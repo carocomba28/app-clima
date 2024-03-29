@@ -1,0 +1,42 @@
+<div class="flex flex-col items-center justify-center min-h-screen py-2 fondo">
+    <div class="text-5xl font-bold pb-5 text-blue-950">Clima</div>
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-[90%] max-w-lg bg-blue-50"
+        data-v0-t="card">
+        <div class="p-4 flex flex-col gap-2">
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm "
+                    placeholder="Ingrese una ciudad" id="city" type="text" [(ngModel)]="ciudad">
+                <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-10 px-4 py-2 border-2"
+                    [disabled]="!ciudad" (click)="getWeatherData()">Buscar clima
+                </button>
+            </div>
+            <div>
+                <div class="font-semibold text-center text-xl pb-2">
+                    <p>Clima en {{data.name}}</p>
+                </div>
+                <div class="font-semibold">
+                    <p>Temperatura: {{ data.main.temp }} C°</p>
+                </div>
+                <div class="font-semibold">
+                    <p>Sensación térmica: {{ data.main.feels_like }} C°</p>
+                </div>
+                <div class="font-semibold">
+                    <p>Mínima: {{ data.main.temp_min }} C°</p>
+                </div>
+                <div class="font-semibold">
+                    <p>Máxima: {{ data.main.temp_max }} C°</p>
+                </div>
+                <div class="font-semibold">
+                    <p>Humedad: {{ data.main.humidity }}%</p>
+                </div>
+                <div class="font-semibold">
+                    <p>Viento: {{ data.wind.speed * 3.6 }} km/h</p>
+                </div>
+                <div class="font-semibold">
+                    <p>Cielo: {{ data.weather[0].description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
